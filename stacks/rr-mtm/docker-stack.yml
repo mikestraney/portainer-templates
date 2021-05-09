@@ -1,0 +1,51 @@
+---
+version: "3.7"
+services:
+  lidarr:
+    container_name: lidarr
+    environment:
+      - "PUID=${PUID}"
+      - "PGID=${PGID}"
+      - "UMASK=${UMASK}"
+      - "TZ=${TZ}"
+    image: hotio/lidarr:nightly
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - "${LIDARRPORT}:8686"
+    volumes:
+      - "${APPDATA}/lidarr:/config"
+      - "${DOWNLOAD}:/data"
+      - "${MUSIC}:/music"
+  radarr:
+    container_name: radarr
+    environment:
+      - "PUID=${PUID}"
+      - "PGID=${PGID}"
+      - "UMASK=${UMASK}"
+      - "TZ=${TZ}"
+    image: hotio/radarr:nightly
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - "${RADARRPORT}:7878"
+    volumes:
+      - "${APPDATA}/radarr:/config"
+      - "${DOWNLOAD}:/data"
+      - "${MOVIES}:/movie"
+  sonarr:
+    container_name: sonarr
+    environment:
+      - "PUID=${PUID}"
+      - "PGID=${PGID}"
+      - "UMASK=${UMASK}"
+      - "TZ=${TZ}"
+    image: hotio/sonarr:nightly
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - "${SONARRPORT}:8989"
+    volumes:
+      - "${APPDATA}/sonarr:/config"
+      - "${DOWNLOAD}:/data"
+      - "${TV}:/tv"
