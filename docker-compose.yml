@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  portainer-templates:
+    build: .
+    image: portainer-templates
+    ports:
+      - '8087:80'
+    volumes:
+      - './templates.json:/usr/share/nginx/html/templates.json'
+      - './Template:/Template'
+    container_name: portainer-templates

@@ -1,0 +1,82 @@
+---
+version: "3.7"
+services:
+  jackett:
+    container_name: jackett
+    depends_on:
+      - qbittorrent
+    environment:
+      - "PUID=${PUID}"
+      - "PGID=${PGID}"
+      - "UMASK=${UMASK}"
+      - "TZ=${TZ}"
+    image: hotio/jackett
+    network_mode: "service:qbittorrent"
+    restart: unless-stopped
+    volumes:
+      - "${APPDATA}/jackett:/config"
+      - "${DOWNLOAD}:/data"
+  nzbget:
+    container_name: nzbget
+    depends_on:
+      - qbittorrent
+    environment:
+      - "PUID=${PUID}"
+      - "PGID=${PGID}"
+      - "UMASK=${UMASK}"
+      - "TZ=${TZ}"
+    image: hotio/nzbget
+    network_mode: "service:qbittorrent"
+    restart: unless-stopped
+    volumes:
+      - "${APPDATA}/nzbget:/config"
+      - "${DOWNLOAD}:/data"
+  nzbhydra2:
+    container_name: nzbhydra2
+    depends_on:
+      - qbittorrent
+    environment:
+      - "PUID=${PUID}"
+      - "PGID=${PGID}"
+      - "UMASK=${UMASK}"
+      - "TZ=${TZ}"
+    image: hotio/nzbhydra2
+    network_mode: "service:qbittorrent"
+    restart: unless-stopped
+    volumes:
+      - "${APPDATA}/nzbhydra2:/config"
+  qbittorrent:
+    container_name: qbittorrent
+    environment:
+      - "PUID=${PUID}"
+      - "PGID=${PGID}"
+      - "UMASK=${UMASK}"
+      - "TZ=${TZ}"
+      - "VPN_ENABLED=${VPN_ENABLED}"
+      - "VPN_USER=${VPN_USER}"
+      - "VPN_PASS=${VPN_PASS}"
+      - "VPN_PROV=${VPN_PROV}"
+      - "VPN_CLIENT=${VPN_CLIENT}"
+      - "VPN_OPTIONS=${VPN_OPTIONS}"
+      - "STRICT_PORT_FORWARD=${STRICT_PORT_FORWARD}"
+      - "ENABLE_PRIVOXY=${ENABLE_PRIVOXY}"
+      - "LAN_NETWORK=${LAN_NETWORK}"
+      - "NAME_SERVERS=${NAME_SERVERS}"
+      - "ADDITIONAL_PORTS=${ADDITIONAL_PORTS}"
+      - "DEBUG=${DEBUG}"
+      - "WEBUI_PORT=${QBITTORENTPORT}"
+    image: binhex/arch-qbittorrentvpn
+    ports:
+      - "6881:6881"
+      - "6881:6881/udp"
+      - "${QBITTORENTPORT}:8080"
+      - "${PRIVOXYPORT}:8118"
+      - "${NZBHYDRA2PORT}:5076"
+      - "${JACKETTPORT}:9117"
+      - "${NZBGETPORT}:6789"
+    privileged: true
+    restart: unless-stopped
+    volumes:
+      - "${APPDATA}/qbittorrent:/config"
+      - "${DOWNLOAD}:/data"
+      - "/etc/localtime:/etc/localtime:ro"
