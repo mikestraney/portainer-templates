@@ -17,30 +17,14 @@
                         },
                         "env": [
                                 {
-                                        "default": "1000",
-                                        "label": "PUID",
-                                        "name": "PUID"
-                                },
-                                {
-                                        "default": "100",
-                                        "label": "PGID",
-                                        "name": "PGID"
-                                },
-                                {
-                                        "label": "TZ",
-                                        "name": "TZ"
-                                },
-                                {
-                                        "label": "DATABASE_PASSWORD",
-                                        "name": "DATABASE_PASSWORD"
+                                        "label": "MYSQL_PASSWORD",
+                                        "name": "mypassword",
+                                        "description": "password for sql"
                                 },
                                 {
                                         "label": "MYSQL_ROOT_PASSWORD",
-                                        "name": "MYSQL_ROOT_PASSWORD"
-                                },
-                                {
-                                        "label": "PORT",
-                                        "name": "PORT"
+                                        "name": "myrpassword"
+                                        "description": "root password for sql"
                                 }
                         ]
 
