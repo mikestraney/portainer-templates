@@ -23,7 +23,7 @@
                                 },
                                 {
                                         "label": "MYSQL_ROOT_PASSWORD",
-                                        "name": "myrpassword"
+                                        "name": "myrpassword",
                                         "description": "root password for sql"
                                 }
                         ]
