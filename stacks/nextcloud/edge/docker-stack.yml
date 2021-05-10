@@ -1,0 +1,32 @@
+version: '3.6'
+services:
+  nextcloud:
+    image: nextcloud
+    container_name: nextcloud
+    environment:
+      - MYSQL_DATABASE=nextcloud_db
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=mypassword
+    volumes:
+      - nextcloud_data:/var/www/html 
+#    ports:
+#      - ${PORT}:80
+#      - ${PORT}:443
+    restart: unless-stopped
+#    depends_on:
+#      - nextcloud_db
+  nextcloud_db:
+    image: mariadb
+    container_name: nextcloud_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=myrpassword
+      - MYSQL_DATABASE=nextcloud_db
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=mypassword
+    volumes:
+      - nextcloud_db:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  nextcloud_data:
+  nextcloud_db:
