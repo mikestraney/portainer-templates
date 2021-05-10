@@ -2,6 +2,51 @@
 	"version": "2",
 	"templates": [
                 {
+                        "type": 3,
+                        "title": "Nextcloud-custom",
+                        "description": "Nextcloud setup with a MySQL database",
+                        "note": "Deploys a Nextcloud instance connected to a MySQL database.",
+                        "categories": [
+                                "Cloud"
+                        ],
+                        "platform": "linux",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/nextcloud-icon.png",
+                        "repository": {
+                                "url": "https://github.com/mikestraney/portainer-templates",
+                                "stackfile": "stacks/nextcloud/docker-stack.yml"
+                        },
+                        "env": [
+                                {
+                                        "default": "1000",
+                                        "label": "PUID",
+                                        "name": "PUID"
+                                },
+                                {
+                                        "default": "100",
+                                        "label": "PGID",
+                                        "name": "PGID"
+                                },
+                                {
+                                        "label": "TZ",
+                                        "name": "TZ"
+                                },
+                                {
+                                        "label": "DATABASE_PASSWORD",
+                                        "name": "DATABASE_PASSWORD"
+                                },
+                                {
+                                        "label": "MYSQL_ROOT_PASSWORD",
+                                        "name": "MYSQL_ROOT_PASSWORD"
+                                },
+                                {
+                                        "label": "PORT",
+                                        "name": "PORT"
+                                }
+                        ]
+
+
+                },
+                {
 			"type": 1,
 			"title": "Registry",
 			"description": "Docker image registry",
