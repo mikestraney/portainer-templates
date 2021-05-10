@@ -2,7 +2,7 @@
 	"version": "2",
 	"templates": [
                 {
-                        "type": 3,
+                        "type": 2,
                         "title": "NextcloudStack",
                         "description": "Nextcloud setup with a MySQL database",
                         "note": "Deploys a Nextcloud instance connected to a MySQL database.",
