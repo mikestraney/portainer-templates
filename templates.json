@@ -1511,7 +1511,7 @@
 				"url": "https://github.com/mikestraney/portainer-templates"
 			},
 			"title": "Bookstack",
-			"type": 3
+			"type": 2
 		},
 		{
 			"categories": [
@@ -2516,7 +2516,7 @@
 				"url": "https://github.com/mikestraney/portainer-templates"
 			},
 			"title": "Invoice Ninja",
-			"type": 3
+			"type": 2
 		},
 		{
 			"categories": [
@@ -3326,7 +3326,7 @@
 				"url": "https://github.com/mikestraney/portainer-templates"
 			},
 			"title": "Nextcloud",
-			"type": 3
+			"type": 2
 		},
 		{
 			"categories": [
