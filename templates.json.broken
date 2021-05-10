@@ -2,6 +2,35 @@
 	"version": "2",
 	"templates": [
                 {
+                        "type": 3,
+                        "title": "Nextcloud-custom",
+                        "description": "Nextcloud setup with a MySQL database",
+                        "note": "Deploys a Nextcloud instance connected to a MySQL database.",
+                        "categories": [
+                                "Cloud"
+                        ],
+                        "platform": "linux",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/nextcloud-icon.png",
+                        "repository": {
+                                "url": "https://github.com/mikestraney/portainer-templates",
+                                "stackfile": "stacks/nextcloud/docker-stack.yml"
+                        },
+                        "env": [
+                                {
+                                        "label": "MYSQL_PASSWORD",
+                                        "name": "mypassword",
+                                        "description": "password for sql"
+                                },
+                                {
+                                        "label": "MYSQL_ROOT_PASSWORD",
+                                        "name": "myrpassword",
+                                        "description": "root password for sql"
+                                }
+                        ]
+
+
+                },
+                {
 			"type": 1,
 			"title": "Registry",
 			"description": "Docker image registry",
@@ -974,7 +1003,7 @@
 			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/wordpress.png",
 			"repository": {
 				"url": "https://github.com/mikestraney/portainer-templates",
-				"stackfile": "stacks/wordpress/docker-compose.yml"
+				"stackfile": "stacks/wordpress/docker-stack.yml"
 			},
 			"env": [{
 				"name": "MYSQL_DATABASE_PASSWORD",
@@ -1482,7 +1511,7 @@
 			"note": "Default login is admin@admin.com with a password of password. The database created is called bookstackapp and the database user is called bookstack",
 			"platform": "linux",
 			"repository": {
-				"stackfile": "stacks/bookstack/docker-compose.yml",
+				"stackfile": "stacks/bookstack/docker-stack.yml",
 				"url": "https://github.com/mikestraney/portainer-templates"
 			},
 			"title": "Bookstack",
@@ -2487,7 +2516,7 @@
 			"note": "The database user is invoice_ninja and the database is ninja_db. Please generate an app key following the documentation \u003ca href='https://github.com/invoiceninja/dockerfiles'\u003ehere\u003c/a\u003e. ",
 			"platform": "linux",
 			"repository": {
-				"stackfile": "stacks/invoice-ninja/docker-compose.yml",
+				"stackfile": "stacks/invoice-ninja/docker-stack.yml",
 				"url": "https://github.com/mikestraney/portainer-templates"
 			},
 			"title": "Invoice Ninja",
@@ -3297,7 +3326,7 @@
 			"note": "The database user is nextcloud and the database is nextcloud_db. The host of the database will be located at the bottom of the DB conotainer in portainer.",
 			"platform": "linux",
 			"repository": {
-				"stackfile": "stacks/nextcloud/docker-compose.yml",
+				"stackfile": "stacks/nextcloud/docker-stack.yml",
 				"url": "https://github.com/mikestraney/portainer-templates"
 			},
 			"title": "Nextcloud",
