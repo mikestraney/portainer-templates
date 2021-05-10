@@ -1,31 +1,32 @@
----
-version: "3.6"
+version: '3.6'
 services:
   nextcloud:
-    image: linuxserver/nextcloud
+    image: nextcloud
     container_name: nextcloud
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
+      - MYSQL_DATABASE=nextcloud_db
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=mypassword
     volumes:
-      - /portainer/Files/AppData/Config/Nextcloud/Config:/config
-    ports:
-      - ${PORT}:443
+      - nextcloud_data:/var/www/html 
+#    ports:
+#      - ${PORT}:80
+#      - ${PORT}:443
     restart: unless-stopped
-    depends_on:
-      - nextcloud_db
+#    depends_on:
+#      - nextcloud_db
   nextcloud_db:
     image: linuxserver/mariadb
     container_name: nextcloud_db
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - TZ=${Timezone}
+      - MYSQL_ROOT_PASSWORD=myrpassword
       - MYSQL_DATABASE=nextcloud_db
       - MYSQL_USER=nextcloud
-      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
+      - MYSQL_PASSWORD=mypassword
     volumes:
-      - /portainer/AppData/Config/Nextcloud/DB:/config
+      - nextcloud_db:/var/lib/mysql
     restart: unless-stopped
+
+volumes:
+  nextcloud_data:
+  nextcloud_db:
