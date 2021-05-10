@@ -16,7 +16,7 @@ services:
 #    depends_on:
 #      - nextcloud_db
   nextcloud_db:
-    image: linuxserver/mariadb
+    image: mariadb
     container_name: nextcloud_db
     environment:
       - MYSQL_ROOT_PASSWORD=myrpassword
