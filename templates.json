@@ -1,3 +1,4 @@
+
 {
 	"version": "2",
 	"templates": [
@@ -123,6 +124,46 @@
 			}]
 		},
 		{
+			"categories": [
+				"Other",
+				"Tools"
+			],
+			"description": "An Enhanced drop in replacement for Mysql",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"label": "MYSQL_ROOT_PASSWORD",
+					"name": "MYSQL_ROOT_PASSWORD",
+					"set": ""
+				}
+			],
+			"image": "linuxserver/mariadb:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/mariadb-icon.png",
+			"name": "mariadb",
+			"platform": "linux",
+			"ports": [
+				"3306:3306/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "MariaDB",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Mariadb",
+					"container": "/config"
+				}
+			]
+		},
+		{
 			"type": 1,
 			"title": "MariaDB",
 			"description": "Performance beyond MySQL",
@@ -185,6 +226,28 @@
 			"volumes": [{
 				"container": "/data/db"
 			}]
+		},
+		{
+			"type": 2,
+			"title": "CockroachDB",
+			"description": "CockroachDB cluster",
+			"note": "Deploys an insecure CockroachDB cluster, please refer to <a href=\"https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-docker-swarm.html\" target=\"_blank\">CockroachDB documentation</a> for production deployments.",
+			"categories": [
+				"database"
+			],
+			"platform": "linux",
+			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/cockroachdb.png",
+			"repository": {
+				"url": "https://github.com/mikestraney/portainer-templates",
+				"stackfile": "stacks/cockroachdb/docker-stack.yml"
+			}
+		},
+		{
+	    "type": 4,
+	    "title": "CockroachDB",
+	    "description": "CockroachDB cluster",
+	    "note": "Deploys an insecure CockroachDB cluster, please refer to <a href=\"https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-docker-swarm.html\" target=\"_blank\">CockroachDB documentation</a> for production deployments.",
+	    "stackfile": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/stacks/cockroachdb/edge/docker-stack.yml"
 		},
 		{
 			"type": 1,
@@ -425,6 +488,21 @@
 				"container": "/app/data"
 			}],
 			"privileged": true
+		},
+		{
+			"type": 2,
+			"title": "IronFunctions",
+			"description": "Open-source serverless computing platform",
+			"note": "Deploys the IronFunctions API and UI.",
+			"categories": [
+				"serverless"
+			],
+			"platform": "linux",
+			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ironfunctions.png",
+			"repository": {
+				"url": "https://github.com/mikestraney/portainer-templates",
+				"stackfile": "stacks/ironfunctions/docker-stack.yml"
+			}
 		},
 		{
 			"type": 1,
@@ -829,6 +907,34 @@
 			}]
 		},
 		{
+			"categories": [
+				"Other",
+				"Tools"
+			],
+			"description": "Web File Browser which can be used as a middleware or standalone app.",
+			"image": "80x86/filebrowser:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/filebrowser.png",
+			"name": "filebrowser",
+			"note": "The default user and password is admin/admin.",
+			"platform": "linux",
+			"ports": [
+				"8082:8082/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "FileBrowser",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/FileBrowser",
+					"container": "/config"
+				},
+				{
+					"bind": "/portainer/Files/AppData/Config",
+					"container": "/myfiles"
+				}
+			]
+		},
+		{
 			"type": 1,
 			"title": "File browser",
 			"description": "A web file manager",
@@ -935,36 +1041,6 @@
 			"repository": {
 				"url": "https://github.com/openfaas/faas",
 				"stackfile": "docker-compose.yml"
-			}
-		},
-		{
-			"type": 2,
-			"title": "IronFunctions",
-			"description": "Open-source serverless computing platform",
-			"note": "Deploys the IronFunctions API and UI.",
-			"categories": [
-				"serverless"
-			],
-			"platform": "linux",
-			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ironfunctions.png",
-			"repository": {
-				"url": "https://github.com/mikestraney/portainer-templates",
-				"stackfile": "stacks/ironfunctions/docker-stack.yml"
-			}
-		},
-		{
-			"type": 2,
-			"title": "CockroachDB",
-			"description": "CockroachDB cluster",
-			"note": "Deploys an insecure CockroachDB cluster, please refer to <a href=\"https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-docker-swarm.html\" target=\"_blank\">CockroachDB documentation</a> for production deployments.",
-			"categories": [
-				"database"
-			],
-			"platform": "linux",
-			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/cockroachdb.png",
-			"repository": {
-				"url": "https://github.com/mikestraney/portainer-templates",
-				"stackfile": "stacks/cockroachdb/docker-stack.yml"
 			}
 		},
 		{
@@ -1080,15 +1156,8 @@
 	    "description": "Wordpress setup with a MySQL database",
 	    "note": "Deploys a Wordpress instance connected to a MySQL database.",
 	    "stackfile": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/stacks/wordpress/edge/docker-stack.yml"
-	  },
-	  {
-	    "type": 4,
-	    "title": "CockroachDB",
-	    "description": "CockroachDB cluster",
-	    "note": "Deploys an insecure CockroachDB cluster, please refer to <a href=\"https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-docker-swarm.html\" target=\"_blank\">CockroachDB documentation</a> for production deployments.",
-	    "stackfile": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/stacks/cockroachdb/edge/docker-stack.yml"
-	  },
-			{
+		},
+		{
 			"categories": [
 	            "Other"
 	        ],
@@ -1138,7 +1207,7 @@
 		          "container": "/opt/adguardhome/conf"
 		        }
         	]
-        },
+		},
 		{
 			"categories": [
 				"Music"
@@ -2140,34 +2209,6 @@
 		},
 		{
 			"categories": [
-				"Other",
-				"Tools"
-			],
-			"description": "Web File Browser which can be used as a middleware or standalone app.",
-			"image": "80x86/filebrowser:latest",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/filebrowser.png",
-			"name": "filebrowser",
-			"note": "The default user and password is admin/admin.",
-			"platform": "linux",
-			"ports": [
-				"8082:8082/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "FileBrowser",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/FileBrowser",
-					"container": "/config"
-				},
-				{
-					"bind": "/portainer/Files/AppData/Config",
-					"container": "/myfiles"
-				}
-			]
-		},
-		{
-			"categories": [
 				"Other"
 			],
 			"description": "A free, self-hostable rss aggregator…",
@@ -2682,6 +2723,42 @@
 		},
 		{
 			"categories": [
+				"Proxy",
+				"Tools"
+			],
+			"description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
+			"image": "jc21/nginx-proxy-manager",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/proxy_mgr.png",
+			"name": "nginx-proxy-manager",
+			"platform": "linux",
+			"env": [
+				{
+					"label": "DB_SQLITE_FILE",
+					"name": "DB_SQLITE_FILE",
+					"default": "/data/database.sqlite"
+				}
+			],
+			"ports": [
+				"80:8080/tcp",
+				"81:8181/tcp",
+				"443:4443/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Nginx Proxy Manager",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Nginx-Proxy/data",
+					"container": "/data"
+				},
+				{
+					"bind": "/portainer/Files/AppData/Config/Nginx-Proxy/letsencrypt",
+					"container": "/etc/letsencrypt"
+				}
+			]
+		},
+		{
+			"categories": [
 				"Tools",
 				"Web"
 			],
@@ -2812,46 +2889,6 @@
 				{
 					"bind": "/portainer/Pictures",
 					"container": "/pictures"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Other",
-				"Tools"
-			],
-			"description": "An Enhanced drop in replacement for Mysql",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "100",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"label": "MYSQL_ROOT_PASSWORD",
-					"name": "MYSQL_ROOT_PASSWORD",
-					"set": ""
-				}
-			],
-			"image": "linuxserver/mariadb:latest",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/mariadb-icon.png",
-			"name": "mariadb",
-			"platform": "linux",
-			"ports": [
-				"3306:3306/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "MariaDB",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/Mariadb",
-					"container": "/config"
 				}
 			]
 		},
@@ -3366,42 +3403,6 @@
 		},
 		{
 			"categories": [
-				"Proxy",
-				"Tools"
-			],
-			"description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
-			"image": "jc21/nginx-proxy-manager",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/proxy_mgr.png",
-			"name": "nginx-proxy-manager",
-			"platform": "linux",
-			"env": [
-				{
-					"label": "DB_SQLITE_FILE",
-					"name": "DB_SQLITE_FILE",
-					"default": "/data/database.sqlite"
-				}
-			],
-			"ports": [
-				"80:8080/tcp",
-				"81:8181/tcp",
-				"443:4443/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Nginx Proxy Manager",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/Nginx-Proxy/data",
-					"container": "/data"
-				},
-				{
-					"bind": "/portainer/Files/AppData/Config/Nginx-Proxy/letsencrypt",
-					"container": "/etc/letsencrypt"
-				}
-			]
-		},
-		{
-			"categories": [
 				"Other"
 			],
 			"description": "OScam is a softcam, software to be used to decrypt digital television channels on a settopbox (receiver), as an alternative for a conditional access module\n  (CAM). OScam is, compared with other softcams (CCcam, mgcamd, etc.), open source. Hence, the name Open Source Conditional Access Module (OScam). OScam is based on the\n  not so well known softcam MpCS. The main features of OSCam are next to its softcam capabilities, that it is able to function as a cardserver.",
@@ -3469,6 +3470,68 @@
 				{
 					"bind": "/portainer/Files/AppData/Config/Ombi",
 					"container": "/config"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Other",
+				"VPN",
+				"Tools"
+			],
+			"description": "This container contains OpenVPN and Transmission with a configuration\nwhere Transmission is running only when OpenVPN has an active tunnel.\nIt bundles configuration files for many popular VPN providers to make the setup easier.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "MULLVAD",
+					"description": "https://haugene.github.io/docker-transmission-openvpn/supported-providers/",
+					"label": "OPENVPN_PROVIDER",
+					"name": "OPENVPN_PROVIDER"
+				},
+				{
+					"default": "",
+					"label": "OPENVPN_USERNAME",
+					"name": "OPENVPN_USERNAME"
+				},
+				{
+					"default": "",
+					"label": "OPENVPN_PASSWORD",
+					"name": "OPENVPN_PASSWORD"
+				},
+				{
+					"default": "192.168.0.0/24",
+					"label": "LOCAL_NETWORK",
+					"name": "LOCAL_NETWORK"
+				}
+			],
+			"image": "haugene/transmission-openvpn:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/transmission-icon.png",
+			"name": "transmission-openvpn",
+			"note": "List of supported providers available \u003ca href='https://haugene.github.io/docker-transmission-openvpn/supported-providers'/\u003ehere\u003c/a\u003e.",
+			"platform": "linux",
+			"ports": [
+				"9091:9091/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Transmission-OpenVPN",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Downloads",
+					"container": "/data"
+				},
+				{
+					"bind": "/etc/localtime",
+					"container": "/etc/localtime"
 				}
 			]
 		},
@@ -4441,68 +4504,6 @@
 				},
 				{
 					"container": "/watch"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Other",
-				"VPN",
-				"Tools"
-			],
-			"description": "This container contains OpenVPN and Transmission with a configuration\nwhere Transmission is running only when OpenVPN has an active tunnel.\nIt bundles configuration files for many popular VPN providers to make the setup easier.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "100",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "MULLVAD",
-					"description": "https://haugene.github.io/docker-transmission-openvpn/supported-providers/",
-					"label": "OPENVPN_PROVIDER",
-					"name": "OPENVPN_PROVIDER"
-				},
-				{
-					"default": "",
-					"label": "OPENVPN_USERNAME",
-					"name": "OPENVPN_USERNAME"
-				},
-				{
-					"default": "",
-					"label": "OPENVPN_PASSWORD",
-					"name": "OPENVPN_PASSWORD"
-				},
-				{
-					"default": "192.168.0.0/24",
-					"label": "LOCAL_NETWORK",
-					"name": "LOCAL_NETWORK"
-				}
-			],
-			"image": "haugene/transmission-openvpn:latest",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/transmission-icon.png",
-			"name": "transmission-openvpn",
-			"note": "List of supported providers available \u003ca href='https://haugene.github.io/docker-transmission-openvpn/supported-providers'/\u003ehere\u003c/a\u003e.",
-			"platform": "linux",
-			"ports": [
-				"9091:9091/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Transmission-OpenVPN",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Downloads",
-					"container": "/data"
-				},
-				{
-					"bind": "/etc/localtime",
-					"container": "/etc/localtime"
 				}
 			]
 		},
