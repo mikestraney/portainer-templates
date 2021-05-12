@@ -1,44 +1,42 @@
-// Beets
-		{
-			"categories": [
-				"Music"
-			],
-			"description": "The purpose of beets is to get your music collection right once and for all. It catalogs your collection, automatically improving its metadata as it goes using the MusicBrainz database. Then it provides a bouquet of tools for manipulating and accessing your music.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "100",
-					"label": "PGID",
-					"name": "PGID"
-				}
-			],
-			"image": "linuxserver/beets:latest",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/beets-icon.png",
-			"name": "beets",
-			"platform": "linux",
-			"ports": [
-				"8337:8337/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Beets",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/Beets",
-					"container": "/config"
-				},
-				{
-					"bind": "/portainer/Downloads",
-					"container": "/downloads"
-				},
-				{
-					"bind": "/portainer/Music",
-					"container": "/music"
-				}
-			]
-		},
-// _________
+                {
+                        "categories": [
+                                "Music"
+                        ],
+                        "description": "The purpose of beets is to get your music collection right once and for all. It catalogs your collection, automatically improving its metadata as it goes using the MusicBrainz database. Then it provides a bouquet of tools for manipulating and accessing your music.",
+                        "env": [
+                                {
+                                        "default": "1000",
+                                        "label": "PUID",
+                                        "name": "PUID"
+                                },
+                                {
+                                        "default": "100",
+                                        "label": "PGID",
+                                        "name": "PGID"
+                                }
+                        ],
+                        "image": "linuxserver/beets:latest",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/beets-icon.png",
+                        "name": "beets",
+                        "platform": "linux",
+                        "ports": [
+                                "8337:8337/tcp"
+                        ],
+                        "restart_policy": "unless-stopped",
+                        "title": "Beets",
+                        "type": 1,
+                        "volumes": [
+                                {
+                                        "bind": "/portainer/Files/AppData/Config/Beets",
+                                        "container": "/config"
+                                },
+                                {
+                                        "bind": "/portainer/Downloads",
+                                        "container": "/downloads"
+                                },
+                                {
+                                        "bind": "/portainer/Music",
+                                        "container": "/music"
+                                }
+                        ]
+                },

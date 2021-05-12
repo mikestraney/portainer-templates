@@ -1,0 +1,34 @@
+                {
+                        "categories": [
+                                "Other"
+                        ],
+                        "description": "McMyAdmin 2 is the leading web control panel and administration console for Minecraft servers.",
+                        "env": [
+                                {
+                                        "default": "1000",
+                                        "label": "PUID",
+                                        "name": "PUID"
+                                },
+                                {
+                                        "default": "100",
+                                        "label": "PGID",
+                                        "name": "PGID"
+                                }
+                        ],
+                        "image": "linuxserver/mcmyadmin2:latest",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/mcmyadmin-icon.png",
+                        "name": "mcmyadmin2",
+                        "platform": "linux",
+                        "ports": [
+                                "8080:8080/tcp",
+                                "25565:25565/tcp"
+                        ],
+                        "restart_policy": "unless-stopped",
+                        "title": "McMyAdmin 2",
+                        "type": 1,
+                        "volumes": [
+                                {
+                                        "container": "/minecraft"
+                                }
+                        ]
+                },

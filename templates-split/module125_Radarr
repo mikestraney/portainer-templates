@@ -1,45 +1,43 @@
-// Radarr
-		{
-			"categories": [
-				"Downloaders",
-				"Video"
-			],
-			"description": "Radarr - A fork of Sonarr to work with movies à la Couchpotato.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "100",
-					"label": "PGID",
-					"name": "PGID"
-				}
-			],
-			"image": "linuxserver/radarr:latest",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/radarr.png",
-			"name": "radarr",
-			"platform": "linux",
-			"ports": [
-				"7878:7878/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Radarr",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/Radarr",
-					"container": "/config"
-				},
-				{
-					"bind": "/portainer/Downloads",
-					"container": "/downloads"
-				},
-				{
-					"bind": "/portainer/Movies",
-					"container": "/movies"
-				}
-			]
-		},
-// _________
+                {
+                        "categories": [
+                                "Downloaders",
+                                "Video"
+                        ],
+                        "description": "Radarr - A fork of Sonarr to work with movies à la Couchpotato.",
+                        "env": [
+                                {
+                                        "default": "1000",
+                                        "label": "PUID",
+                                        "name": "PUID"
+                                },
+                                {
+                                        "default": "100",
+                                        "label": "PGID",
+                                        "name": "PGID"
+                                }
+                        ],
+                        "image": "linuxserver/radarr:latest",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/radarr.png",
+                        "name": "radarr",
+                        "platform": "linux",
+                        "ports": [
+                                "7878:7878/tcp"
+                        ],
+                        "restart_policy": "unless-stopped",
+                        "title": "Radarr",
+                        "type": 1,
+                        "volumes": [
+                                {
+                                        "bind": "/portainer/Files/AppData/Config/Radarr",
+                                        "container": "/config"
+                                },
+                                {
+                                        "bind": "/portainer/Downloads",
+                                        "container": "/downloads"
+                                },
+                                {
+                                        "bind": "/portainer/Movies",
+                                        "container": "/movies"
+                                }
+                        ]
+                },

@@ -1,37 +1,35 @@
-// Organizr
-		{
-			"categories": [
-				"Other",
-				"Tools"
-			],
-			"description": "Organizr allows you to setup Tabs that will be loaded all in one webpage. You can then work on your server with ease.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "100",
-					"label": "PGID",
-					"name": "PGID"
-				}
-			],
-			"image": "organizr/organizr:latest",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/organizr-icon.png",
-			"name": "organizr-v2",
-			"platform": "linux",
-			"ports": [
-				"80/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Organizr",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/Organizr",
-					"container": "/config"
-				}
-			]
-		},
-// _________
+                {
+                        "categories": [
+                                "Other",
+                                "Tools"
+                        ],
+                        "description": "Organizr allows you to setup Tabs that will be loaded all in one webpage. You can then work on your server with ease.",
+                        "env": [
+                                {
+                                        "default": "1000",
+                                        "label": "PUID",
+                                        "name": "PUID"
+                                },
+                                {
+                                        "default": "100",
+                                        "label": "PGID",
+                                        "name": "PGID"
+                                }
+                        ],
+                        "image": "organizr/organizr:latest",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/organizr-icon.png",
+                        "name": "organizr-v2",
+                        "platform": "linux",
+                        "ports": [
+                                "80/tcp"
+                        ],
+                        "restart_policy": "unless-stopped",
+                        "title": "Organizr",
+                        "type": 1,
+                        "volumes": [
+                                {
+                                        "bind": "/portainer/Files/AppData/Config/Organizr",
+                                        "container": "/config"
+                                }
+                        ]
+                },

@@ -1,47 +1,45 @@
-// MusicBrainz
-		{
-			"categories": [
-				"Music",
-				"Other",
-				"Tools"
-			],
-			"description": " MusicBrainz is an open music encyclopedia that collects music metadata and makes it available to the public.",
-			"env": [
-				{
-					"label": "BRAINZCODE",
-					"name": "BRAINZCODE",
-					"set": ""
-				},
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "100",
-					"label": "PGID",
-					"name": "PGID"
-				}
-			],
-			"image": "linuxserver/musicbrainz:latest",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/musicbrainz-icon.png",
-			"name": "musicbrainz",
-			"platform": "linux",
-			"ports": [
-				"5000:5000/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "MusicBrainz",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/MusicBrainz",
-					"container": "/config"
-				},
-				{
-					"bind": "/portainer/Files/AppData/MusicBrainz",
-					"container": "/data"
-				}
-			]
-		},
-// _________
+                {
+                        "categories": [
+                                "Music",
+                                "Other",
+                                "Tools"
+                        ],
+                        "description": " MusicBrainz is an open music encyclopedia that collects music metadata and makes it available to the public.",
+                        "env": [
+                                {
+                                        "label": "BRAINZCODE",
+                                        "name": "BRAINZCODE",
+                                        "set": ""
+                                },
+                                {
+                                        "default": "1000",
+                                        "label": "PUID",
+                                        "name": "PUID"
+                                },
+                                {
+                                        "default": "100",
+                                        "label": "PGID",
+                                        "name": "PGID"
+                                }
+                        ],
+                        "image": "linuxserver/musicbrainz:latest",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/musicbrainz-icon.png",
+                        "name": "musicbrainz",
+                        "platform": "linux",
+                        "ports": [
+                                "5000:5000/tcp"
+                        ],
+                        "restart_policy": "unless-stopped",
+                        "title": "MusicBrainz",
+                        "type": 1,
+                        "volumes": [
+                                {
+                                        "bind": "/portainer/Files/AppData/Config/MusicBrainz",
+                                        "container": "/config"
+                                },
+                                {
+                                        "bind": "/portainer/Files/AppData/MusicBrainz",
+                                        "container": "/data"
+                                }
+                        ]
+                },

@@ -1,43 +1,41 @@
-// Lychee
-		{
-			"categories": [
-				"Cloud",
-				"Web",
-				"Management",
-				"Photos"
-			],
-			"description": "Lychee is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "100",
-					"label": "PGID",
-					"name": "PGID"
-				}
-			],
-			"image": "linuxserver/lychee:latest",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/lychee-icon.png",
-			"name": "lychee",
-			"platform": "linux",
-			"ports": [
-				"80/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Lychee",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/Lychee",
-					"container": "/config"
-				},
-				{
-					"bind": "/portainer/Pictures",
-					"container": "/pictures"
-				}
-			]
-		},
-// _________
+                {
+                        "categories": [
+                                "Cloud",
+                                "Web",
+                                "Management",
+                                "Photos"
+                        ],
+                        "description": "Lychee is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
+                        "env": [
+                                {
+                                        "default": "1000",
+                                        "label": "PUID",
+                                        "name": "PUID"
+                                },
+                                {
+                                        "default": "100",
+                                        "label": "PGID",
+                                        "name": "PGID"
+                                }
+                        ],
+                        "image": "linuxserver/lychee:latest",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/lychee-icon.png",
+                        "name": "lychee",
+                        "platform": "linux",
+                        "ports": [
+                                "80/tcp"
+                        ],
+                        "restart_policy": "unless-stopped",
+                        "title": "Lychee",
+                        "type": 1,
+                        "volumes": [
+                                {
+                                        "bind": "/portainer/Files/AppData/Config/Lychee",
+                                        "container": "/config"
+                                },
+                                {
+                                        "bind": "/portainer/Pictures",
+                                        "container": "/pictures"
+                                }
+                        ]
+                },

@@ -1,38 +1,36 @@
-// Nginx
-		{
-			"categories": [
-				"Web",
-				"Proxy"
-			],
-			"description": "Nginx is a web server with a strong focus on high concurrency, performance and low memory usage. It can also act as a reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer and an HTTP cache.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "100",
-					"label": "PGID",
-					"name": "PGID"
-				}
-			],
-			"image": "linuxserver/nginx:latest",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/nginx-icon.png",
-			"name": "nginx",
-			"platform": "linux",
-			"ports": [
-				"80/tcp",
-				"443/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Nginx",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/Nginx",
-					"container": "/config"
-				}
-			]
-		},
-// _________
+                {
+                        "categories": [
+                                "Web",
+                                "Proxy"
+                        ],
+                        "description": "Nginx is a web server with a strong focus on high concurrency, performance and low memory usage. It can also act as a reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer and an HTTP cache.",
+                        "env": [
+                                {
+                                        "default": "1000",
+                                        "label": "PUID",
+                                        "name": "PUID"
+                                },
+                                {
+                                        "default": "100",
+                                        "label": "PGID",
+                                        "name": "PGID"
+                                }
+                        ],
+                        "image": "linuxserver/nginx:latest",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/nginx-icon.png",
+                        "name": "nginx",
+                        "platform": "linux",
+                        "ports": [
+                                "80/tcp",
+                                "443/tcp"
+                        ],
+                        "restart_policy": "unless-stopped",
+                        "title": "Nginx",
+                        "type": 1,
+                        "volumes": [
+                                {
+                                        "bind": "/portainer/Files/AppData/Config/Nginx",
+                                        "container": "/config"
+                                }
+                        ]
+                },

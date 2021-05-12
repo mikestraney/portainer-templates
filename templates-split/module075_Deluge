@@ -1,42 +1,40 @@
-// Deluge
-		{
-			"categories": [
-				"Downloaders"
-			],
-			"description": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client providing: Full Encryption, WebUI, Plugin System, Much more...",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "100",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"label": "UMASK_SET",
-					"name": "UMASK_SET",
-					"set": "000"
-				}
-			],
-			"image": "linuxserver/deluge:latest",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/deluge-icon.png",
-			"namme": "deluge",
-			"platform": "linux",
-			"restart_policy": "unless-stopped",
-			"title": "Deluge",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/Deluge",
-					"container": "/config"
-				},
-				{
-					"bind": "/portainer/Downloads",
-					"container": "/downloads"
-				}
-			]
-		},
-// _________
+                {
+                        "categories": [
+                                "Downloaders"
+                        ],
+                        "description": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client providing: Full Encryption, WebUI, Plugin System, Much more...",
+                        "env": [
+                                {
+                                        "default": "1000",
+                                        "label": "PUID",
+                                        "name": "PUID"
+                                },
+                                {
+                                        "default": "100",
+                                        "label": "PGID",
+                                        "name": "PGID"
+                                },
+                                {
+                                        "label": "UMASK_SET",
+                                        "name": "UMASK_SET",
+                                        "set": "000"
+                                }
+                        ],
+                        "image": "linuxserver/deluge:latest",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/deluge-icon.png",
+                        "namme": "deluge",
+                        "platform": "linux",
+                        "restart_policy": "unless-stopped",
+                        "title": "Deluge",
+                        "type": 1,
+                        "volumes": [
+                                {
+                                        "bind": "/portainer/Files/AppData/Config/Deluge",
+                                        "container": "/config"
+                                },
+                                {
+                                        "bind": "/portainer/Downloads",
+                                        "container": "/downloads"
+                                }
+                        ]
+                },

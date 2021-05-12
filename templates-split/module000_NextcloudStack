@@ -1,0 +1,25 @@
+                {
+                        "type": 2,
+                        "title": "NextcloudStack",
+                        "description": "Nextcloud setup with a MySQL database",
+                        "note": "Deploys a Nextcloud instance connected to a MySQL database.",
+                        "categories": [
+                                "Cloud"
+                        ],
+                        "platform": "linux",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/nextcloud-icon.png",
+                        "repository": {
+                                "url": "https://github.com/mikestraney/portainer-templates",
+                                "stackfile": "stacks/nextcloud/docker-stack.yml"
+                        },
+                        "env": [{
+                                        "label": "MYSQL_PASSWORD",
+                                        "name": "mypassword",
+                                        "description": "password for sql"
+                                },
+                                {
+                                        "label": "MYSQL_ROOT_PASSWORD",
+                                        "name": "myrpassword",
+                                        "description": "root password for sql"
+                                }]
+                },

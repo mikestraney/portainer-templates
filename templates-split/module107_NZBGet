@@ -1,0 +1,38 @@
+                {
+                        "categories": [
+                                "Downloaders"
+                        ],
+                        "description": "NZBGet is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources. It supports all platforms including Windows, Mac, Linux and works on all devices including PC, NAS, WLAN routers and media players",
+                        "env": [
+                                {
+                                        "default": "1000",
+                                        "label": "PUID",
+                                        "name": "PUID"
+                                },
+                                {
+                                        "default": "100",
+                                        "label": "PGID",
+                                        "name": "PGID"
+                                }
+                        ],
+                        "image": "linuxserver/nzbget:latest",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/nzbget-icon.png",
+                        "name": "nzbget",
+                        "platform": "linux",
+                        "ports": [
+                                "6789:6789/tcp"
+                        ],
+                        "restart_policy": "unless-stopped",
+                        "title": "NZBGet",
+                        "type": 1,
+                        "volumes": [
+                                {
+                                        "bind": "/portainer/Files/AppData/Config/Nzbget",
+                                        "container": "/config"
+                                },
+                                {
+                                        "bind": "/portainer/Downloads",
+                                        "container": "/downloads"
+                                }
+                        ]
+                },
