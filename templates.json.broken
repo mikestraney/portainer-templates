@@ -1,8 +1,11 @@
+// Templates.json-Header
 {
 	"version": "2",
 	"templates": [
+// _________
+// Nextcloud
                 {
-                        "type": 3,
+                        "type": 2,
                         "title": "NextcloudStack",
                         "description": "Nextcloud setup with a MySQL database",
                         "note": "Deploys a Nextcloud instance connected to a MySQL database.",
@@ -25,6 +28,8 @@
                                         "name": "myrpassword",
                                         "description": "root password for sql"
                                 }]
+// _________
+// Registry
                 },
                 {
 			"type": 1,
@@ -43,6 +48,8 @@
 				"container": "/var/lib/registry"
 			}]
 		},
+// _________
+// Nginx
 		{
 			"type": 1,
 			"title": "Nginx",
@@ -65,6 +72,8 @@
 				}
 			]
 		},
+// _________
+// HTTPD
 		{
 			"type": 1,
 			"title": "Httpd",
@@ -82,6 +91,8 @@
 				"container": "/usr/local/apache2/htdocs/"
 			}]
 		},
+// _________
+// Caddy
 		{
 			"type": 1,
 			"title": "Caddy",
@@ -101,6 +112,8 @@
 				"container": "/root/.caddy"
 			}]
 		},
+// _________
+// Mysql
 		{
 			"type": 1,
 			"title": "MySQL",
@@ -122,6 +135,50 @@
 				"container": "/var/lib/mysql"
 			}]
 		},
+// _________
+// Mariadb
+		{
+			"categories": [
+				"Other",
+				"Tools"
+			],
+			"description": "An Enhanced drop in replacement for Mysql",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"label": "MYSQL_ROOT_PASSWORD",
+					"name": "MYSQL_ROOT_PASSWORD",
+					"set": ""
+				}
+			],
+			"image": "linuxserver/mariadb:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/mariadb-icon.png",
+			"name": "mariadb",
+			"platform": "linux",
+			"ports": [
+				"3306:3306/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "MariaDB",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Mariadb",
+					"container": "/config"
+				}
+			]
+		},
+// _________
+// Mariadb
 		{
 			"type": 1,
 			"title": "MariaDB",
@@ -143,6 +200,8 @@
 				"container": "/var/lib/mysql"
 			}]
 		},
+// _________
+// Postrgresql
 		{
 			"type": 1,
 			"title": "PostgreSQL",
@@ -169,6 +228,8 @@
 				"container": "/var/lib/postgresql/data"
 			}]
 		},
+// _________
+// Mongo
 		{
 			"type": 1,
 			"title": "Mongo",
@@ -186,6 +247,34 @@
 				"container": "/data/db"
 			}]
 		},
+// _________
+// Cockroach-Db
+		{
+			"type": 2,
+			"title": "CockroachDB",
+			"description": "CockroachDB cluster",
+			"note": "Deploys an insecure CockroachDB cluster, please refer to <a href=\"https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-docker-swarm.html\" target=\"_blank\">CockroachDB documentation</a> for production deployments.",
+			"categories": [
+				"database"
+			],
+			"platform": "linux",
+			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/cockroachdb.png",
+			"repository": {
+				"url": "https://github.com/mikestraney/portainer-templates",
+				"stackfile": "stacks/cockroachdb/docker-stack.yml"
+			}
+		},
+// _________
+// Cockroach-Db
+		{
+	    "type": 4,
+	    "title": "CockroachDB",
+	    "description": "CockroachDB cluster",
+	    "note": "Deploys an insecure CockroachDB cluster, please refer to <a href=\"https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-docker-swarm.html\" target=\"_blank\">CockroachDB documentation</a> for production deployments.",
+	    "stackfile": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/stacks/cockroachdb/edge/docker-stack.yml"
+		},
+// _________
+// Cockroach-DB
 		{
 			"type": 1,
 			"title": "CockroachDB",
@@ -205,6 +294,8 @@
 			}],
 			"command": "start --insecure"
 		},
+// _________
+// Crate-DB
 		{
 			"type": 1,
 			"title": "CrateDB",
@@ -223,6 +314,8 @@
 				"container": "/data"
 			}]
 		},
+// _________
+// Elasticsearch
 		{
 			"type": 1,
 			"title": "Elasticsearch",
@@ -241,6 +334,8 @@
 				"container": "/usr/share/elasticsearch/data"
 			}]
 		},
+// _________
+// Gitlab
 		{
 			"type": 1,
 			"title": "Gitlab CE",
@@ -269,6 +364,8 @@
 				}
 			]
 		},
+// _________
+// Minio
 		{
 			"type": 1,
 			"title": "Minio",
@@ -300,6 +397,8 @@
 			],
 			"command": "server /data"
 		},
+// _________
+// Scality-S3
 		{
 			"type": 1,
 			"title": "Scality S3",
@@ -330,6 +429,8 @@
 				}
 			]
 		},
+// _________
+// SQL-Server
 		{
 			"type": 1,
 			"title": "SQL Server",
@@ -354,6 +455,8 @@
 				}
 			]
 		},
+// _________
+// SQL-Server
 		{
 			"type": 1,
 			"title": "SQL Server",
@@ -381,6 +484,8 @@
 				"container": "C:/temp/"
 			}]
 		},
+// _________
+// SQL-Server-Express
 		{
 			"type": 1,
 			"title": "SQL Server Express",
@@ -408,6 +513,8 @@
 				"container": "C:/temp/"
 			}]
 		},
+// _________
+// Ironfunctions-API
 		{
 			"type": 1,
 			"title": "IronFunctions API",
@@ -426,6 +533,25 @@
 			}],
 			"privileged": true
 		},
+// _________
+// Ironfunctions
+		{
+			"type": 2,
+			"title": "IronFunctions",
+			"description": "Open-source serverless computing platform",
+			"note": "Deploys the IronFunctions API and UI.",
+			"categories": [
+				"serverless"
+			],
+			"platform": "linux",
+			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ironfunctions.png",
+			"repository": {
+				"url": "https://github.com/mikestraney/portainer-templates",
+				"stackfile": "stacks/ironfunctions/docker-stack.yml"
+			}
+		},
+// _________
+// Ironfunctions-UI
 		{
 			"type": 1,
 			"title": "IronFunctions UI",
@@ -448,6 +574,8 @@
 			}],
 			"privileged": true
 		},
+// _________
+// SOLR
 		{
 			"type": 1,
 			"title": "Solr",
@@ -465,6 +593,8 @@
 				"container": "/opt/solr/mydata"
 			}]
 		},
+// _________
+// Redis
 		{
 			"type": 1,
 			"title": "Redis",
@@ -482,6 +612,8 @@
 				"container": "/data"
 			}]
 		},
+// _________
+// Rabbit-MQ
 		{
 			"type": 1,
 			"title": "RabbitMQ",
@@ -500,6 +632,8 @@
 				"container": "/var/lib/rabbitmq"
 			}]
 		},
+// _________
+// Ghost
 		{
 			"type": 1,
 			"title": "Ghost",
@@ -518,6 +652,8 @@
 				"container": "/var/lib/ghost/content"
 			}]
 		},
+// _________
+// Plesk
 		{
 			"type": 1,
 			"title": "Plesk",
@@ -538,6 +674,8 @@
 				"8447/tcp"
 			]
 		},
+// _________
+// Joomla
 		{
 			"type": 1,
 			"title": "Joomla",
@@ -565,6 +703,8 @@
 				"container": "/var/www/html"
 			}]
 		},
+// _________
+// Drupal
 		{
 			"type": 1,
 			"title": "Drupal",
@@ -582,6 +722,8 @@
 				"container": "/var/www/html"
 			}]
 		},
+// _________
+// Plone
 		{
 			"type": 1,
 			"title": "Plone",
@@ -599,6 +741,8 @@
 				"container": "/data"
 			}]
 		},
+// _________
+// Magento2
 		{
 			"type": 1,
 			"title": "Magento 2",
@@ -618,6 +762,8 @@
 				"container": "/var/www/html/"
 			}]
 		},
+// _________
+// Sematext
 		{
 			"type": 1,
 			"title": "Sematext Docker Agent",
@@ -645,6 +791,8 @@
 				"bind": "/var/run/docker.sock"
 			}]
 		},
+// _________
+// Datadog
 		{
 			"type": 1,
 			"title": "Datadog agent",
@@ -676,6 +824,8 @@
 				}
 			]
 		},
+// _________
+// Mautic
 		{
 			"type": 1,
 			"title": "Mautic",
@@ -703,6 +853,8 @@
 				"container": "/var/www/html"
 			}]
 		},
+// _________
+// Wowza
 		{
 			"type": 1,
 			"title": "Wowza",
@@ -733,6 +885,8 @@
 				"container": "/var/lib/wowza"
 			}]
 		},
+// _________
+// Jenkins
 		{
 			"type": 1,
 			"title": "Jenkins",
@@ -755,6 +909,8 @@
 				"container": "/var/jenkins_home"
 			}]
 		},
+// _________
+// Redmine
 		{
 			"type": 1,
 			"title": "Redmine",
@@ -772,6 +928,8 @@
 				"container": "/usr/src/redmine/files"
 			}]
 		},
+// _________
+// Odoo
 		{
 			"type": 1,
 			"title": "Odoo",
@@ -807,6 +965,8 @@
 				}
 			]
 		},
+// _________
+// Urbackup
 		{
 			"type": 1,
 			"title": "Urbackup",
@@ -828,6 +988,38 @@
 				"container": "/var/urbackup"
 			}]
 		},
+// _________
+// File-browser
+		{
+			"categories": [
+				"Other",
+				"Tools"
+			],
+			"description": "Web File Browser which can be used as a middleware or standalone app.",
+			"image": "80x86/filebrowser:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/filebrowser.png",
+			"name": "filebrowser",
+			"note": "The default user and password is admin/admin.",
+			"platform": "linux",
+			"ports": [
+				"8082:8082/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "FileBrowser",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/FileBrowser",
+					"container": "/config"
+				},
+				{
+					"bind": "/portainer/Files/AppData/Config",
+					"container": "/myfiles"
+				}
+			]
+		},
+// _________
+// File-browser
 		{
 			"type": 1,
 			"title": "File browser",
@@ -852,6 +1044,8 @@
 			],
 			"command": "--port 80 --database /data/database.db --root /srv"
 		},
+// _________
+// Commandbox
 		{
 			"type": 1,
 			"title": "CommandBox",
@@ -871,6 +1065,8 @@
 				"8443/tcp"
 			]
 		},
+// _________
+// Contentbox
 		{
 			"type": 1,
 			"title": "ContentBox",
@@ -906,6 +1102,8 @@
 				}
 			]
 		},
+// _________
+// Portainer-Agent
 		{
 			"type": 2,
 			"title": "Portainer Agent",
@@ -921,6 +1119,8 @@
 				"stackfile": "stacks/portainer-agent/docker-stack.yml"
 			}
 		},
+// _________
+// Openfaas
 		{
 			"type": 2,
 			"title": "OpenFaaS",
@@ -937,36 +1137,8 @@
 				"stackfile": "docker-compose.yml"
 			}
 		},
-		{
-			"type": 2,
-			"title": "IronFunctions",
-			"description": "Open-source serverless computing platform",
-			"note": "Deploys the IronFunctions API and UI.",
-			"categories": [
-				"serverless"
-			],
-			"platform": "linux",
-			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ironfunctions.png",
-			"repository": {
-				"url": "https://github.com/mikestraney/portainer-templates",
-				"stackfile": "stacks/ironfunctions/docker-stack.yml"
-			}
-		},
-		{
-			"type": 2,
-			"title": "CockroachDB",
-			"description": "CockroachDB cluster",
-			"note": "Deploys an insecure CockroachDB cluster, please refer to <a href=\"https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-docker-swarm.html\" target=\"_blank\">CockroachDB documentation</a> for production deployments.",
-			"categories": [
-				"database"
-			],
-			"platform": "linux",
-			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/cockroachdb.png",
-			"repository": {
-				"url": "https://github.com/mikestraney/portainer-templates",
-				"stackfile": "stacks/cockroachdb/docker-stack.yml"
-			}
-		},
+// _________
+// Wordpress
 		{
 			"type": 2,
 			"title": "Wordpress",
@@ -987,6 +1159,8 @@
 				"description": "Password used by the MySQL root user."
 			}]
 		},
+// _________
+// Wordpress
 		{
 			"type": 3,
 			"title": "Wordpress",
@@ -1007,6 +1181,8 @@
 				"description": "Password used by the MySQL root user."
 			}]
 		},
+// _________
+// Microsoft-OMS
 		{
 			"type": 2,
 			"title": "Microsoft OMS Agent",
@@ -1032,6 +1208,8 @@
 				}
 			]
 		},
+// _________
+// Sematext
 		{
 			"title": "Sematext Docker Agent",
 			"type": 2,
@@ -1056,6 +1234,8 @@
 				}
 			]
 		},
+// _________
+// Datadog
 		{
 			"title": "Datadog agent",
 			"type": 2,
@@ -1080,15 +1260,10 @@
 	    "description": "Wordpress setup with a MySQL database",
 	    "note": "Deploys a Wordpress instance connected to a MySQL database.",
 	    "stackfile": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/stacks/wordpress/edge/docker-stack.yml"
-	  },
-	  {
-	    "type": 4,
-	    "title": "CockroachDB",
-	    "description": "CockroachDB cluster",
-	    "note": "Deploys an insecure CockroachDB cluster, please refer to <a href=\"https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-docker-swarm.html\" target=\"_blank\">CockroachDB documentation</a> for production deployments.",
-	    "stackfile": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/stacks/cockroachdb/edge/docker-stack.yml"
-	  },
-			{
+		},
+// _________
+// Adguard
+		{
 			"categories": [
 	            "Other"
 	        ],
@@ -1138,7 +1313,9 @@
 		          "container": "/opt/adguardhome/conf"
 		        }
         	]
-        },
+		},
+// _________
+// Airsonic
 		{
 			"categories": [
 				"Music"
@@ -1199,6 +1376,8 @@
 				}
 			]
 		},
+// _________
+// Authelia
 		{
 			"categories": [
 				"Other",
@@ -1230,6 +1409,8 @@
 				}
 			]
 		},
+// _________
+// Embystat
 		{
 			"categories": [
 				"Other",
@@ -1254,6 +1435,8 @@
 				}
 			]
 		},
+// _________
+// Snibox
 		{
 			"categories": [
 				"Other",
@@ -1278,6 +1461,8 @@
 				}
 			]
 		},
+// _________
+// Authelia
 		{
 			"categories": [
 				"Other",
@@ -1309,6 +1494,8 @@
 				}
 			]
 		},
+// _________
+// Bazarr
 		{
 			"categories": [
 				"Video",
@@ -1356,6 +1543,8 @@
 				}
 			]
 		},
+// _________
+// Beets
 		{
 			"categories": [
 				"Music"
@@ -1398,6 +1587,8 @@
 				}
 			]
 		},
+// _________
+// Bitwarden-rs
 		{
 			"categories": [
 				"Other",
@@ -1422,6 +1613,8 @@
 				}
 			]
 		},
+// _________
+// Booksonic
 		{
 			"categories": [
 				"Books",
@@ -1470,6 +1663,8 @@
 				}
 			]
 		},
+// _________
+// Bookstack
 		{
 			"categories": [
 				"Wiki"
@@ -1511,8 +1706,10 @@
 				"url": "https://github.com/mikestraney/portainer-templates"
 			},
 			"title": "Bookstack",
-			"type": 3
+			"type": 2
 		},
+// _________
+// COPS
 		{
 			"categories": [
 				"Cloud",
@@ -1552,6 +1749,8 @@
 				}
 			]
 		},
+// _________
+// Calibre-Web
 		{
 			"categories": [
 				"Cloud",
@@ -1591,6 +1790,8 @@
 				}
 			]
 		},
+// _________
+// Chevereto
 		{
 			"categories": [
 				"Other",
@@ -1651,6 +1852,8 @@
 				}
 			]
 		},
+// _________
+// Chowdown
 		{
 			"categories": [
 				"Other",
@@ -1674,6 +1877,8 @@
 				}
 			]
 		},
+// _________
+// Code-Server-vs
 		{
 			"categories": [
 				"Other",
@@ -1726,6 +1931,8 @@
 				}
 			]
 		},
+// _________
+// Codiad
 		{
 			"categories": [
 				"Productivity"
@@ -1760,6 +1967,8 @@
 				}
 			]
 		},
+// _________
+// CouchPotato
 		{
 			"categories": [
 				"Downloaders",
@@ -1803,6 +2012,8 @@
 				}
 			]
 		},
+// _________
+// DAAP
 		{
 			"categories": [
 				"Music"
@@ -1838,6 +2049,8 @@
 				}
 			]
 		},
+// _________
+// Dashmachine
 		{
 			"categories": [
 				"Other",
@@ -1861,6 +2074,8 @@
 				}
 			]
 		},
+// _________
+// Davos
 		{
 			"categories": [
 				"FTP",
@@ -1901,6 +2116,8 @@
 				}
 			]
 		},
+// _________
+// Deemix
 		{
 			"categories": [
 				"Other",
@@ -1929,6 +2146,8 @@
 				}
 			]
 		},
+// _________
+// Deluge
 		{
 			"categories": [
 				"Downloaders"
@@ -1969,6 +2188,8 @@
 				}
 			]
 		},
+// _________
+// Domoticz
 		{
 			"categories": [
 				"HomeAutomation",
@@ -2006,6 +2227,8 @@
 				}
 			]
 		},
+// _________
+// Duck-DNS
 		{
 			"categories": [
 				"DNS",
@@ -2042,6 +2265,8 @@
 			"title": "Duck DNS",
 			"type": 1
 		},
+// _________
+// Duplicati
 		{
 			"categories": [
 				"Backup",
@@ -2089,6 +2314,8 @@
 				}
 			]
 		},
+// _________
+// Emby
 		{
 			"categories": [
 				"Video",
@@ -2138,34 +2365,8 @@
 				}
 			]
 		},
-		{
-			"categories": [
-				"Other",
-				"Tools"
-			],
-			"description": "Web File Browser which can be used as a middleware or standalone app.",
-			"image": "80x86/filebrowser:latest",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/filebrowser.png",
-			"name": "filebrowser",
-			"note": "The default user and password is admin/admin.",
-			"platform": "linux",
-			"ports": [
-				"8082:8082/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "FileBrowser",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/FileBrowser",
-					"container": "/config"
-				},
-				{
-					"bind": "/portainer/Files/AppData/Config",
-					"container": "/myfiles"
-				}
-			]
-		},
+// _________
+// Fresh-RSS
 		{
 			"categories": [
 				"Other"
@@ -2200,6 +2401,8 @@
 				}
 			]
 		},
+// _________
+// Gazee
 		{
 			"categories": [
 				"Web",
@@ -2241,6 +2444,8 @@
 				}
 			]
 		},
+// _________
+// Guacamole
 		{
 			"categories": [
 				"Other",
@@ -2265,6 +2470,8 @@
 				}
 			]
 		},
+// _________
+// Grocy
 		{
 			"categories": [
 				"Other",
@@ -2305,6 +2512,8 @@
 				}
 			]
 		},
+// _________
+// HTPC-Manager
 		{
 			"categories": [
 				"Video",
@@ -2341,6 +2550,8 @@
 				}
 			]
 		},
+// _________
+// Headphones
 		{
 			"categories": [
 				"Music"
@@ -2383,6 +2594,8 @@
 				}
 			]
 		},
+// _________
+// Heimdall
 		{
 			"categories": [
 				"Tools",
@@ -2420,6 +2633,8 @@
 				}
 			]
 		},
+// _________
+// Homer
 		{
 			"categories": [
 				"Other",
@@ -2448,6 +2663,8 @@
 				}
 			]
 		},
+// _________
+// Huginn
 		{
 			"categories": [
 				"Other",
@@ -2471,6 +2688,8 @@
 				}
 			]
 		},
+// _________
+// Invoice-Ninja
 		{
 			"categories": [
 				"Cloud",
@@ -2516,8 +2735,10 @@
 				"url": "https://github.com/mikestraney/portainer-templates"
 			},
 			"title": "Invoice Ninja",
-			"type": 3
+			"type": 2
 		},
+// _________
+// Jackett
 		{
 			"categories": [
 				"Downloaders",
@@ -2557,6 +2778,8 @@
 				}
 			]
 		},
+// _________
+// Jellyfin
 		{
 			"categories": [
 				"Video",
@@ -2606,6 +2829,8 @@
 				}
 			]
 		},
+// _________
+// KODI-Headless
 		{
 			"categories": [
 				"Video"
@@ -2641,6 +2866,8 @@
 				}
 			]
 		},
+// _________
+// LazyLibrarian
 		{
 			"categories": [
 				"Books"
@@ -2680,6 +2907,46 @@
 				}
 			]
 		},
+// _________
+// Nginx-Proxy-Manager
+		{
+			"categories": [
+				"Proxy",
+				"Tools"
+			],
+			"description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
+			"image": "jc21/nginx-proxy-manager",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/proxy_mgr.png",
+			"name": "nginx-proxy-manager",
+			"platform": "linux",
+			"env": [
+				{
+					"label": "DB_SQLITE_FILE",
+					"name": "DB_SQLITE_FILE",
+					"default": "/data/database.sqlite"
+				}
+			],
+			"ports": [
+				"80:8080/tcp",
+				"81:8181/tcp",
+				"443:4443/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Nginx Proxy Manager",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Nginx-Proxy/data",
+					"container": "/data"
+				},
+				{
+					"bind": "/portainer/Files/AppData/Config/Nginx-Proxy/letsencrypt",
+					"container": "/etc/letsencrypt"
+				}
+			]
+		},
+// _________
+// Nginx-proxy-manager
 		{
 			"categories": [
 				"Tools",
@@ -2751,6 +3018,8 @@
 				}
 			]
 		},
+// _________
+// Librespeed
 		{
 			"categories": [
 				"Other",
@@ -2774,6 +3043,8 @@
 				}
 			]
 		},
+// _________
+// Lychee
 		{
 			"categories": [
 				"Cloud",
@@ -2815,46 +3086,8 @@
 				}
 			]
 		},
-		{
-			"categories": [
-				"Other",
-				"Tools"
-			],
-			"description": "An Enhanced drop in replacement for Mysql",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "100",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"label": "MYSQL_ROOT_PASSWORD",
-					"name": "MYSQL_ROOT_PASSWORD",
-					"set": ""
-				}
-			],
-			"image": "linuxserver/mariadb:latest",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/mariadb-icon.png",
-			"name": "mariadb",
-			"platform": "linux",
-			"ports": [
-				"3306:3306/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "MariaDB",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/Mariadb",
-					"container": "/config"
-				}
-			]
-		},
+// _________
+// McMyAdmin
 		{
 			"categories": [
 				"Other"
@@ -2889,6 +3122,8 @@
 				}
 			]
 		},
+// _________
+// Medusa
 		{
 			"categories": [
 				"Downloaders",
@@ -2932,6 +3167,8 @@
 				}
 			]
 		},
+// _________
+// Minetest
 		{
 			"categories": [
 				"Other"
@@ -2965,6 +3202,8 @@
 				}
 			]
 		},
+// _________
+// Minisatip
 		{
 			"categories": [
 				"Video",
@@ -2997,6 +3236,8 @@
 			"title": "Minisatip",
 			"type": 1
 		},
+// _________
+// Mstream
 		{
 			"categories": [
 				"Other",
@@ -3024,6 +3265,8 @@
 				}
 			]
 		},
+// _________
+// Mumble
 		{
 			"categories": [
 				"Other",
@@ -3077,6 +3320,8 @@
 				}
 			]
 		},
+// _________
+// MusicBrainz
 		{
 			"categories": [
 				"Music",
@@ -3122,6 +3367,8 @@
 				}
 			]
 		},
+// _________
+// Muximux
 		{
 			"categories": [
 				"Web",
@@ -3159,6 +3406,8 @@
 				}
 			]
 		},
+// _________
+// Mylar
 		{
 			"categories": [
 				"Downloaders",
@@ -3202,6 +3451,8 @@
 				}
 			]
 		},
+// _________
+// NZBtget
 		{
 			"categories": [
 				"Downloaders"
@@ -3240,6 +3491,8 @@
 				}
 			]
 		},
+// _________
+// NZBhydra
 		{
 			"categories": [
 				"Downloaders",
@@ -3280,6 +3533,8 @@
 				}
 			]
 		},
+// _________
+// Nextcloud
 		{
 			"categories": [
 				"Cloud",
@@ -3326,8 +3581,10 @@
 				"url": "https://github.com/mikestraney/portainer-templates"
 			},
 			"title": "Nextcloud",
-			"type": 3
+			"type": 2
 		},
+// _________
+// Nginx
 		{
 			"categories": [
 				"Web",
@@ -3364,42 +3621,8 @@
 				}
 			]
 		},
-		{
-			"categories": [
-				"Proxy",
-				"Tools"
-			],
-			"description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
-			"image": "jc21/nginx-proxy-manager",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/proxy_mgr.png",
-			"name": "nginx-proxy-manager",
-			"platform": "linux",
-			"env": [
-				{
-					"label": "DB_SQLITE_FILE",
-					"name": "DB_SQLITE_FILE",
-					"default": "/data/database.sqlite"
-				}
-			],
-			"ports": [
-				"80:8080/tcp",
-				"81:8181/tcp",
-				"443:4443/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Nginx Proxy Manager",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/Nginx-Proxy/data",
-					"container": "/data"
-				},
-				{
-					"bind": "/portainer/Files/AppData/Config/Nginx-Proxy/letsencrypt",
-					"container": "/etc/letsencrypt"
-				}
-			]
-		},
+// _________
+// OScam
 		{
 			"categories": [
 				"Other"
@@ -3435,6 +3658,8 @@
 				}
 			]
 		},
+// _________
+// Ombi
 		{
 			"categories": [
 				"Downloaders",
@@ -3472,6 +3697,72 @@
 				}
 			]
 		},
+// _________
+// OpenVPN
+		{
+			"categories": [
+				"Other",
+				"VPN",
+				"Tools"
+			],
+			"description": "This container contains OpenVPN and Transmission with a configuration\nwhere Transmission is running only when OpenVPN has an active tunnel.\nIt bundles configuration files for many popular VPN providers to make the setup easier.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "MULLVAD",
+					"description": "https://haugene.github.io/docker-transmission-openvpn/supported-providers/",
+					"label": "OPENVPN_PROVIDER",
+					"name": "OPENVPN_PROVIDER"
+				},
+				{
+					"default": "",
+					"label": "OPENVPN_USERNAME",
+					"name": "OPENVPN_USERNAME"
+				},
+				{
+					"default": "",
+					"label": "OPENVPN_PASSWORD",
+					"name": "OPENVPN_PASSWORD"
+				},
+				{
+					"default": "192.168.0.0/24",
+					"label": "LOCAL_NETWORK",
+					"name": "LOCAL_NETWORK"
+				}
+			],
+			"image": "haugene/transmission-openvpn:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/transmission-icon.png",
+			"name": "transmission-openvpn",
+			"note": "List of supported providers available \u003ca href='https://haugene.github.io/docker-transmission-openvpn/supported-providers'/\u003ehere\u003c/a\u003e.",
+			"platform": "linux",
+			"ports": [
+				"9091:9091/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Transmission-OpenVPN",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Downloads",
+					"container": "/data"
+				},
+				{
+					"bind": "/etc/localtime",
+					"container": "/etc/localtime"
+				}
+			]
+		},
+// _________
+// OpenVPN
 		{
 			"categories": [
 				"Other"
@@ -3513,6 +3804,8 @@
 				}
 			]
 		},
+// _________
+// Organizr
 		{
 			"categories": [
 				"Other",
@@ -3548,6 +3841,8 @@
 				}
 			]
 		},
+// _________
+// Photoshow
 		{
 			"categories": [
 				"Photos"
@@ -3590,6 +3885,8 @@
 				}
 			]
 		},
+// _________
+// Pihole
 		{
 			"categories": [
 				"Other",
@@ -3622,6 +3919,8 @@
 				}
 			]
 		},
+// _________
+// Piwigo
 		{
 			"categories": [
 				"Photos"
@@ -3656,6 +3955,8 @@
 				}
 			]
 		},
+// _________
+// Plex
 		{
 			"categories": [
 				"Video",
@@ -3703,6 +4004,8 @@
 				}
 			]
 		},
+// _________
+// Plex-requests
 		{
 			"categories": [
 				"Downloaders",
@@ -3745,6 +4048,8 @@
 				}
 			]
 		},
+// _________
+// ProjectSend
 		{
 			"categories": [
 				"Cloud",
@@ -3786,6 +4091,8 @@
 				}
 			]
 		},
+// _________
+// Protonmail-bridge
 		{
 			"categories": [
 				"Email",
@@ -3813,6 +4120,8 @@
 				}
 			]
 		},
+// _________
+// Pydio
 		{
 			"categories": [
 				"Cloud",
@@ -3852,6 +4161,8 @@
 				}
 			]
 		},
+// _________
+// Quassel
 		{
 			"categories": [
 				"Messenger"
@@ -3886,6 +4197,8 @@
 				}
 			]
 		},
+// _________
+// Radarr
 		{
 			"categories": [
 				"Downloaders",
@@ -3929,6 +4242,8 @@
 				}
 			]
 		},
+// _________
+// Reactive-resume
 		{
 			"categories": [
 				"Other",
@@ -3993,6 +4308,8 @@
 				}
 			]
 		},
+// _________
+// SABnzbd
 		{
 			"categories": [
 				"Downloaders"
@@ -4036,6 +4353,8 @@
 				}
 			]
 		},
+// _________
+// Shiori
 		{
 			"categories": [
 				"Other",
@@ -4059,6 +4378,8 @@
 				}
 			]
 		},
+// _________
+// Sickchill
 		{
 			"categories": [
 				"Downloaders",
@@ -4102,6 +4423,8 @@
 				}
 			]
 		},
+// _________
+// Sickgear
 		{
 			"categories": [
 				"Downloaders",
@@ -4145,6 +4468,8 @@
 				}
 			]
 		},
+// _________
+// Smokeping
 		{
 			"categories": [
 				"Management"
@@ -4183,6 +4508,8 @@
 				}
 			]
 		},
+// _________
+// Sonarr
 		{
 			"categories": [
 				"Downloaders",
@@ -4230,6 +4557,8 @@
 				}
 			]
 		},
+// _________
+// Syncthing
 		{
 			"categories": [
 				"Backup",
@@ -4272,6 +4601,8 @@
 				}
 			]
 		},
+// _________
+// Tautulli
 		{
 			"categories": [
 				"Other",
@@ -4311,6 +4642,8 @@
 				}
 			]
 		},
+// _________
+// TheLounge
 		{
 			"categories": [
 				"Messenger"
@@ -4345,6 +4678,8 @@
 				}
 			]
 		},
+// _________
+// Tiddlywiki
 		{
 			"categories": [
 				"Other",
@@ -4368,6 +4703,8 @@
 				}
 			]
 		},
+// _________
+// Tiny-tiny-RSS
 		{
 			"categories": [
 				"Other"
@@ -4402,6 +4739,8 @@
 				}
 			]
 		},
+// _________
+// Transmission
 		{
 			"categories": [
 				"Downloaders"
@@ -4444,68 +4783,8 @@
 				}
 			]
 		},
-		{
-			"categories": [
-				"Other",
-				"VPN",
-				"Tools"
-			],
-			"description": "This container contains OpenVPN and Transmission with a configuration\nwhere Transmission is running only when OpenVPN has an active tunnel.\nIt bundles configuration files for many popular VPN providers to make the setup easier.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "100",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "MULLVAD",
-					"description": "https://haugene.github.io/docker-transmission-openvpn/supported-providers/",
-					"label": "OPENVPN_PROVIDER",
-					"name": "OPENVPN_PROVIDER"
-				},
-				{
-					"default": "",
-					"label": "OPENVPN_USERNAME",
-					"name": "OPENVPN_USERNAME"
-				},
-				{
-					"default": "",
-					"label": "OPENVPN_PASSWORD",
-					"name": "OPENVPN_PASSWORD"
-				},
-				{
-					"default": "192.168.0.0/24",
-					"label": "LOCAL_NETWORK",
-					"name": "LOCAL_NETWORK"
-				}
-			],
-			"image": "haugene/transmission-openvpn:latest",
-			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/transmission-icon.png",
-			"name": "transmission-openvpn",
-			"note": "List of supported providers available \u003ca href='https://haugene.github.io/docker-transmission-openvpn/supported-providers'/\u003ehere\u003c/a\u003e.",
-			"platform": "linux",
-			"ports": [
-				"9091:9091/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Transmission-OpenVPN",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Downloads",
-					"container": "/data"
-				},
-				{
-					"bind": "/etc/localtime",
-					"container": "/etc/localtime"
-				}
-			]
-		},
+// _________
+// TVheadend
 		{
 			"categories": [
 				"Video",
@@ -4545,6 +4824,8 @@
 				}
 			]
 		},
+// _________
+// Ubooquity
 		{
 			"categories": [
 				"Cloud",
@@ -4591,6 +4872,8 @@
 				}
 			]
 		},
+// _________
+// Unifi-controller
 		{
 			"categories": [
 				"Management",
@@ -4633,6 +4916,8 @@
 				}
 			]
 		},
+// _________
+// Watchtower
 		{
 			"categories": [
 				"Other",
@@ -4655,6 +4940,8 @@
 				}
 			]
 		},
+// _________
+// Webgrab-plus
 		{
 			"categories": [
 				"Downloaders"
@@ -4690,6 +4977,8 @@
 				}
 			]
 		},
+// _________
+// Whoogle
 		{
 			"categories": [
 				"Other",
@@ -4713,6 +5002,8 @@
 				}
 			]
 		},
+// _________
+// Wikijs
 		{
 			"categories": [
 				"Other",
@@ -4740,6 +5031,8 @@
 				}
 			]
 		},
+// _________
+// YoutubeDL
 		{
 			"categories": [
 				"Other",
@@ -4779,6 +5072,8 @@
 				}
 			]
 		},
+// _________
+// ZNC
 		{
 			"categories": [
 				"Messenger"
@@ -4813,6 +5108,8 @@
 				}
 			]
 		},
+// _________
+// Lidarr
 		{
 			"categories": [
 				"Downloaders",
@@ -4856,6 +5153,8 @@
 				}
 			]
 		},
+// _________
+// qbittorrent
 		{
 			"categories": [
 				"Downloaders"
@@ -4896,6 +5195,8 @@
 				}
 			]
 		},
+// _________
+// Yacht
 		{
 			"categories": [
 				"Other",
@@ -4923,6 +5224,8 @@
 				}
 			]
 		},
+// _________
+// rutorrent
 		{
 			"categories": [
 				"Downloaders"
@@ -4963,5 +5266,7 @@
 				}
 			]
 		}
+// _________
+// Templates.json-Footer
 	]
 }
