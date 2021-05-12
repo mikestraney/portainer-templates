@@ -1,0 +1,42 @@
+                {
+                        "categories": [
+                                "Downloaders"
+                        ],
+                        "description": "Transmission is designed for easy, powerful use. Transmission has the features you want from a BitTorrent client: encryption, a web interface, peer exchange, magnet links, DHT, µTP, UPnP and NAT-PMP port forwarding, webseed support, watch directories, tracker editing, global and per-torrent speed limits, and more.",
+                        "env": [
+                                {
+                                        "default": "1000",
+                                        "label": "PUID",
+                                        "name": "PUID"
+                                },
+                                {
+                                        "default": "100",
+                                        "label": "PGID",
+                                        "name": "PGID"
+                                }
+                        ],
+                        "image": "linuxserver/transmission:latest",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/transmission-icon.png",
+                        "name": "transmission",
+                        "platform": "linux",
+                        "ports": [
+                                "9091:9091/tcp",
+                                "51413:51413/tcp"
+                        ],
+                        "restart_policy": "unless-stopped",
+                        "title": "Transmission",
+                        "type": 1,
+                        "volumes": [
+                                {
+                                        "bind": "/portainer/Files/AppData/Config/Transmission",
+                                        "container": "/config"
+                                },
+                                {
+                                        "bind": "/portainer/Files/Downloads",
+                                        "container": "/downloads"
+                                },
+                                {
+                                        "container": "/watch"
+                                }
+                        ]
+                },

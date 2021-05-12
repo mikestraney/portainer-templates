@@ -1,0 +1,25 @@
+                {
+                        "type": 1,
+                        "title": "Traefik",
+                        "description": "reverse proxy, loadbalancer, and web server",
+                        "categories": [
+                                "webserver"
+                        ],
+                        "platform": "linux",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/traefiklogo.png",
+                        "image": "traefik:latest",
+                        "ports": [
+                                "80/tcp",
+                                "443/tcp"
+                        ],
+                        "volumes": [{
+                                        "container": "/letsencrypt"
+                                },
+                                {
+                                        "container": "/traefikconfig"
+                                },
+                                {
+                                        "container": "/var/run/docker.sock"
+                                }
+                        ]
+                },

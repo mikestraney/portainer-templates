@@ -1,0 +1,19 @@
+                {
+                        "type": 1,
+                        "title": "Gitea",
+                        "description": "Light, fast, and free self-hosted git website written in Go",
+                        "categories": [
+                                "development"
+                        ],
+                        "note": "You can enable or disable self registration in settings",
+                        "platform": "linux",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/gitea-lg.png",
+                        "image": "gitea/gitea:latest",
+                        "ports": [
+                                "3000/tcp"
+                                "22/tcp"
+                        ],
+                        "volumes": [{
+                                "container": "/data"
+                        }]
+                },

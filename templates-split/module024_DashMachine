@@ -1,0 +1,23 @@
+                {
+                        "categories": [
+                                "Other",
+                                "Tools"
+                        ],
+                        "description": "Another application bookmark dashboard, with fun features.",
+                        "image": "rmountjoy/dashmachine:latest",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/dashmachine_logo.png",
+                        "name": "dashmachine",
+                        "platform": "linux",
+                        "ports": [
+                                "5000:5000/tcp"
+                        ],
+                        "restart_policy": "unless-stopped",
+                        "title": "DashMachine",
+                        "type": 1,
+                        "volumes": [
+                                {
+                                        "bind": "/portainer/Files/AppData/Config/Dashmachine",
+                                        "container": "/dashmachine/dashmachine/user_data"
+                                }
+                        ]
+                },

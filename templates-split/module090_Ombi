@@ -1,0 +1,37 @@
+                {
+                        "categories": [
+                                "Downloaders",
+                                "Other",
+                                "Video",
+                                "Tools"
+                        ],
+                        "description": "Ombi allows you to host your own Plex Request and user management system. ",
+                        "env": [
+                                {
+                                        "default": "1000",
+                                        "label": "PUID",
+                                        "name": "PUID"
+                                },
+                                {
+                                        "default": "100",
+                                        "label": "PGID",
+                                        "name": "PGID"
+                                }
+                        ],
+                        "image": "linuxserver/ombi:latest",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/ombi.png",
+                        "name": "ombi",
+                        "platform": "linux",
+                        "ports": [
+                                "3579:3579/tcp"
+                        ],
+                        "restart_policy": "unless-stopped",
+                        "title": "Ombi",
+                        "type": 1,
+                        "volumes": [
+                                {
+                                        "bind": "/portainer/Files/AppData/Config/Ombi",
+                                        "container": "/config"
+                                }
+                        ]
+                },

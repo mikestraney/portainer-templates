@@ -1,0 +1,23 @@
+                {
+                        "categories": [
+                                "Other",
+                                "Tools"
+                        ],
+                        "description": "Create agents that monitor and act on your behalf.",
+                        "image": "huginn/huginn:latest",
+                        "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/huginn.png",
+                        "name": "huginn",
+                        "platform": "linux",
+                        "ports": [
+                                "3000:3000/tcp"
+                        ],
+                        "restart_policy": "unless-stopped",
+                        "title": "Huginn",
+                        "type": 1,
+                        "volumes": [
+                                {
+                                        "bind": "/portainer/Files/AppData/Config/huginn",
+                                        "container": "/var/lib/mysql"
+                                }
+                        ]
+                },
