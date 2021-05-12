@@ -1400,7 +1400,7 @@
                         "logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/gitea-lg.png",
                         "image": "gitea/gitea:latest",
                         "ports": [
-                                "3000/tcp"
+                                "3000/tcp",
                                 "22/tcp"
                         ],
                         "volumes": [{
