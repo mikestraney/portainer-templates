@@ -1,0 +1,66 @@
+// Reactive-resume
+		{
+			"categories": [
+				"Other",
+				"Tools"
+			],
+			"description": "A one-of-a-kind resume builder that's not out to get your data. Completely secure, customizable, portable, open-source and free forever.",
+			"image": "amruthpillai/reactive-resume:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/reactiveresume.png",
+			"name": "reactive-resume",
+			"platform": "linux",
+			"ports": [
+				"80/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Reactive-Resume",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/ReactiveResume",
+					"container": "/usr/src/app"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Backup",
+				"Cloud",
+				"Other",
+				"Tools"
+			],
+			"description": "Resilio Sync (formerly BitTorrent Sync) uses the BitTorrent protocol to sync files and folders between all of your devices. There are both free and paid versions, this container supports both.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				}
+			],
+			"image": "linuxserver/resilio-sync:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/resilio.png",
+			"name": "resilio-sync",
+			"platform": "linux",
+			"restart_policy": "unless-stopped",
+			"title": "Resilio Sync",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Resilio-Sync",
+					"container": "/config"
+				},
+				{
+					"container": "/sync"
+				},
+				{
+					"bind": "/portainer/Downloads",
+					"container": "/downloads"
+				}
+			]
+		},
+// _________

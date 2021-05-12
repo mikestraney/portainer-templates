@@ -1,0 +1,25 @@
+// Chowdown
+		{
+			"categories": [
+				"Other",
+				"Tools"
+			],
+			"description": "ave recipes in seconds with plain text formatting and create beatiful recipe pages with automated ease.",
+			"image": "gregyankovoy/chowdown:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/chowdown.png",
+			"name": "Chowdown",
+			"platform": "linux",
+			"ports": [
+				"4000:4000/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Chowdown",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Chowdown",
+					"container": "/config"
+				}
+			]
+		},
+// _________

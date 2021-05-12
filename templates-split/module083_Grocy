@@ -1,0 +1,42 @@
+// Grocy
+		{
+			"categories": [
+				"Other",
+				"Tools",
+				"Finance"
+			],
+			"description": "Grocy is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utulity.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"label": "Timezone",
+					"name": "TZ"
+				}
+			],
+			"image": "linuxserver/grocy:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/grocy_logo.png",
+			"name": "grocy",
+			"platform": "linux",
+			"ports": [
+				"80/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Grocy",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Grocy",
+					"container": "/config"
+				}
+			]
+		},
+// _________

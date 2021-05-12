@@ -1,0 +1,49 @@
+// Duplicati
+		{
+			"categories": [
+				"Backup",
+				"Cloud",
+				"Other",
+				"Productivity",
+				"Tools"
+			],
+			"description": "Free backup software to store encrypted backups online, Duplicati works with standard protocols like FTP, SSH, WebDAV as well as popular services like Microsoft OneDrive, Amazon Cloud Drive and S3, Google Drive, box.com, Mega, hubiC and many others.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				}
+			],
+			"image": "linuxserver/duplicati:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/duplicati-icon.png",
+			"name": "duplicati",
+			"platform": "linux",
+			"ports": [
+				"8200:8200/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Duplicati",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Duplicati",
+					"container": "/config"
+				},
+				{
+					"container": "/tmp"
+				},
+				{
+					"container": "/backups"
+				},
+				{
+					"container": "/source"
+				}
+			]
+		},
+// _________

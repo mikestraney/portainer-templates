@@ -1,0 +1,25 @@
+// Whoogle
+		{
+			"categories": [
+				"Other",
+				"Tools"
+			],
+			"description": "Self-hosted, ad-free, privacy-respecting Google metasearch engine.",
+			"image": "benbusby/whoogle-search:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/whoogle.png",
+			"name": "whoogle",
+			"platform": "linux",
+			"ports": [
+				"5001:5000/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Whoogle",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Whoogle",
+					"container": "/config"
+				}
+			]
+		},
+// _________

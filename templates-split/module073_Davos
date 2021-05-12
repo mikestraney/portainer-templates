@@ -1,0 +1,42 @@
+// Davos
+		{
+			"categories": [
+				"FTP",
+				"Other",
+				"Tools"
+			],
+			"description": "davos is an FTP automation tool that periodically scans given host locations for new files. It can be configured for various purposes, including listening for specific files to appear in the host location, ready for it to download and then move, if required. It also supports completion notifications as well as downstream API calls, to further the workflow.\r\n\r\n/config : AppData Location\r\n/download : File Download Location",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				}
+			],
+			"image": "linuxserver/davos:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/davos.png",
+			"name": "davos",
+			"platform": "linux",
+			"ports": [
+				"8080/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Davos",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Davos",
+					"container": "/config"
+				},
+				{
+					"bind": "/portainer/Downloads",
+					"container": "/downloads"
+				}
+			]
+		},
+// _________

@@ -1,0 +1,45 @@
+// Sickchill
+		{
+			"categories": [
+				"Downloaders",
+				"Video"
+			],
+			"description": "Automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				}
+			],
+			"image": "linuxserver/sickchill:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/sickchill-icon.png",
+			"name": "sickchill",
+			"platform": "linux",
+			"ports": [
+				"8081:8081/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "SickChill",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/SickChill",
+					"container": "/config"
+				},
+				{
+					"bind": "/portainer/Downloads",
+					"container": "/downloads"
+				},
+				{
+					"bind": "/portainer/TV",
+					"container": "/tv"
+				}
+			]
+		},
+// _________

@@ -1,0 +1,51 @@
+// Emby
+		{
+			"categories": [
+				"Video",
+				"Music",
+				"Photos"
+			],
+			"description": "Emby organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"label": "TZ",
+					"name": "TZ"
+				}
+			],
+			"image": "linuxserver/emby:latest",
+			"logo": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/emby.png",
+			"name": "Emby",
+			"platform": "linux",
+			"ports": [
+				"8096:8096/tcp",
+				"8920:8920/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Emby",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Emby",
+					"container": "/config"
+				},
+				{
+					"bind": "/portainer/TV",
+					"container": "/data/tvshows"
+				},
+				{
+					"bind": "/portainer/Movies",
+					"container": "/data/movies"
+				}
+			]
+		},
+// _________
