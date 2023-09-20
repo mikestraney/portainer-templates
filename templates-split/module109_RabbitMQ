@@ -3,7 +3,7 @@
                         "title": "RabbitMQ",
                         "description": "Highly reliable enterprise messaging system",
                         "categories": [
-                                "Messenger"
+                                "Chat"
                         ],
                         "platform": "linux",
                         "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/rabbitmq.png",
